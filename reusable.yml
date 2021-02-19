@@ -1,0 +1,5 @@
+---
+ - hosts: target
+   become: yes
+   tasks:
+     - include_tasks: install_webserver_{{ansible_distribution}}.yml

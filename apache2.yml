@@ -1,0 +1,21 @@
+---
+ - name: A Simple playbook to install the webserver
+   hosts: target
+   gather_facts: true
+   become: yes
+   tasks:
+     - name: Installing webserver
+       yum:
+         name: apache2
+         state: absent
+     - template:
+         src: index.html.j2
+         dest: /var/www/html/index.html
+       notify:
+         - start apache2
+   handlers:
+     - name: start apache2
+       service: 
+         name: apache2
+         state: restarted
+

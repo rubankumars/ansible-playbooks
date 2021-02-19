@@ -1,0 +1,28 @@
+---
+ - hosts: target
+   gather_facts: true
+   tasks:
+     - name: Finding uptime
+       shell: "uptime"
+       register: up_time
+     - name: Display Output
+       debug:
+         msg: "{{inventory_hostname}},{{ansible_distribution}},{{up_time.stdout.split(',')[0].split('up')[-1]|trim}}"
+     - name: Removing old CSV file
+       file:
+         dest: ./output.csv
+         state: absent
+       delegate_to: localhost
+       run_once: true
+     - name: Create CSV file with headers
+       copy:
+         dest: ./output.csv
+         content: "Server Name,OS Family,uptime"
+       delegate_to: localhost
+       run_once: true       
+     - name: Update info about the server into the CSV file
+       lineinfile:
+         path: ./output.csv
+         line: "{{inventory_hostname}},{{ansible_distribution}},{{up_time.stdout.split(',')[0].split('up')[-1]|trim}}"
+       delegate_to: localhost
+         

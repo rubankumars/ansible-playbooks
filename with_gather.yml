@@ -1,0 +1,7 @@
+---
+ - hosts: localhost
+   tasks: 
+   - debug:
+      msg:
+       - "OS Distribution: {{ansible_distribution}}"
+       - "OS Name: {{ansible_system}}"

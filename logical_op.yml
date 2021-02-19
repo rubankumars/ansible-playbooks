@@ -1,0 +1,19 @@
+---
+ - name: Logical Operator Example
+   hosts: localhost
+   gather_facts: false
+   vars:
+     x: 5
+     y: 7
+     p: [4,5,7]
+   tasks:
+     - debug:
+         msg:
+           - "x < y and y in p {{x<y and y in p}}"                      # True
+           - "x < y and y in p and y < x {{x<y and y in p and y < x}}"  # False
+           - "{{(4<5) and (5>1) and (9==0)}}"                           # False
+           - "{{(4<5) and (5>1) and (9!=0)}}"                           # True
+           - "{{((4<5) and (5>1)) or ((2>1) and (9==0))}}"              # True
+           - "{{not (4>1)}}"                                            # False
+           - "{{not (4<1)}}"                                            # True
+             

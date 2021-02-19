@@ -1,0 +1,30 @@
+---
+ - hosts: target
+   gather_facts: false
+   become: yes
+   tasks:
+     - apt:
+         name: make
+         state: latest
+         update_cache: yes
+     - apt:
+         name: libssl-dev
+         state: latest
+         update_cache: yes
+     - apt:
+         name: libghc-zlib-dev
+         state: latest
+         update_cache: yes
+     - apt:
+         name: libcurl4-gnutls-dev 
+         state: latest
+         update_cache: yes
+     - apt:
+         name: libexpat1-dev 
+         state: latest
+         update_cache: yes
+     - apt:
+         name: gettext 
+         state: latest
+         update_cache: yes
+        

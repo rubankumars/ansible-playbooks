@@ -1,0 +1,14 @@
+---
+ - name: A simple playbook to explain the register variable concepts
+   hosts: target
+   gather_facts: no
+   tasks:
+   - name: Gathering the bash version 
+     shell: "bash --version"
+     register: bash_ver
+   - set_fact:
+      bash_version: "{{bash_ver.stdout.split('\n')[0].split()[3]}}"
+      my_string: "This is a string variable"
+   - name: Printing the std_out of register variable
+     debug: var=bash_version
+   - debug: var=my_string  

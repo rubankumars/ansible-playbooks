@@ -1,0 +1,12 @@
+---
+ - hosts: target
+   gather_facts: false
+   tasks:
+     - block:
+        - command: "ls /homed"
+       rescue:
+         - debug:
+             msg: "Path doesn't exists"
+       always:
+         - debug:
+             msg: "This gets executed always"

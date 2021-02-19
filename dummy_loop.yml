@@ -1,0 +1,13 @@
+---
+ - hosts: target
+   gather_facts: false
+   tasks:
+     - debug:
+         msg: "Items in the list: {{item}}"
+       loop:
+         - list1
+         - list2
+         - list3
+         - list4
+           
+

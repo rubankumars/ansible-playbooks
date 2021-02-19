@@ -1,0 +1,11 @@
+---
+ - hosts: target
+   vars_files: 
+    - input_yml.yml
+    - input_json.json
+   tasks:
+   - debug:
+      msg:
+       - "Value of x: {{x}}"
+       - "Value of q: {{q}}"
+       - "Value of pkgs: {{pkgs}}"

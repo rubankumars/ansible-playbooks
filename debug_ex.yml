@@ -1,0 +1,17 @@
+---
+ - hosts: target
+   tasks:
+   - debug: msg="Am running on the host {{inventory_hostname}}"
+   - debug: var=inventory_hostname
+
+ - hosts: target
+   tasks:
+   - debug:
+      msg: "This is my second play"
+   - debug:
+      var: groups.keys()
+   - debug:
+      msg:
+       - "This is my first message"
+       - "This is my second message"
+       - "This is my third message"

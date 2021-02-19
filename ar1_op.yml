@@ -1,0 +1,18 @@
+---
+ - hosts: target
+   gather_facts: false
+   vars_prompt:
+    - name: x
+      prompt: "Enter X value"
+      private: no
+    - name: y
+      prompt: "Enter Y value"
+      private: no
+   vars:
+     a: 3
+   tasks:
+   - debug:
+       msg:
+       - "{{x}} + {{y}} = {{x+y}}"   #jinja syntax
+       - "{{x}} + {{y}} = {{x|int+y|int}}"
+       - "{{a}} - {{y}} = {{a-y|int}}"  

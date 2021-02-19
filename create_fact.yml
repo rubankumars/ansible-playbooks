@@ -1,0 +1,11 @@
+---
+ - name: This playbook creates custom facts variable for GIT tool on the target managed nodes
+   hosts: target
+   become: yes
+   gather_facts: true
+   tasks:
+   - file: path=/etc/ansible/facts.d state=directory
+     name: Creating the directory - /etc/ansible/facts.d
+   - copy: src=/etc/ansible/facts.d/get_version.fact dest=/etc/ansible/facts.d/get_version.fact mode='0755'
+     name: Copying the facts script to the managed nodes
+

@@ -1,0 +1,32 @@
+---
+ - name: tags exampls
+   hosts: target
+   gather_facts: false
+   tasks:
+     - debug:
+         msg: "task 1"
+       tags: 
+         - first
+         - common
+     - debug:
+         msg: "task 2"
+       tags: 
+         - second
+         - never         
+     - debug:
+         msg: "task 3"
+       tags: 
+         - third
+         - common
+     - debug:
+         msg: "task 4"
+       tags: 
+         - fourth
+         - never
+     - debug:
+         msg: "task 5"
+       tags: 
+         - fifth
+         - always
+
+         

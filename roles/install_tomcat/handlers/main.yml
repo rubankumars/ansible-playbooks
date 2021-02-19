@@ -1,0 +1,7 @@
+---
+# handlers file for install_tomcat
+ - name: start tomcat9
+   service:
+     name: tomcat9
+     state: restarted
+

@@ -1,0 +1,7 @@
+---
+ - name: Example on how to use roles
+   hosts: target
+   gather_facts: false
+   become: yes
+   roles:
+     - install_tomcat

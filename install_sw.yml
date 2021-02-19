@@ -1,0 +1,10 @@
+---
+ - name: This is a sample playbook to install {{pkg}} using CLI
+   hosts: target
+   gather_facts: no
+   become: yes
+   tasks:
+   - name: Install {{pkg}} tool
+     apt:
+      name: "{{pkg}}"
+      state: "{{req_state}}"

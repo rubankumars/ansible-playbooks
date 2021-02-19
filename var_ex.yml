@@ -1,0 +1,17 @@
+---
+ - name: Variables and Datatypes Example Playbooks
+   hosts: target
+   gather_facts: no
+   vars:
+    my_number: 23
+    my_float: 21.4
+    my_string: "variable example"
+    my_boolean: false
+   tasks:
+   - name: "Printing the variable"
+     debug:
+      msg:
+       - "value of my_number: {{my_number}} and its datatype is: {{my_number|type_debug}}"
+       - "value of my_float: {{my_float}} and its datatype is: {{my_float|type_debug}}"
+       - "value of my_string: {{my_string}} and its datatype is: {{my_string|type_debug}}"
+       - "value of my_boolean: {{my_boolean}} and its datatype is: {{my_boolean|type_debug}}"

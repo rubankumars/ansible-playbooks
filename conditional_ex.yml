@@ -1,0 +1,15 @@
+---
+ - name: Working with when conditional statement
+   hosts: localhost
+   gather_facts: false
+   vars:
+     x: 5
+     y: 67
+     p: [5,6,7]
+   tasks:
+     - debug:
+        msg: "Value of x {{x}} and value of y {{y}}"
+       when: x==y
+     - debug:
+        msg: "x is present in p"
+       when: x in p

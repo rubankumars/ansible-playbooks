@@ -1,0 +1,16 @@
+---
+# tasks file for install_tomcat 
+  - include_vars: vault_var.yml
+  - include_tasks: install_tomcat.yml
+  - include_tasks: enable_tomcat.yml    
+  - template:
+      src: server.xml.j2
+      dest: /etc/tomcat9/server.xml
+    notify:
+      - start tomcat9
+  - template:
+      src: tomcat-users.xml.j2
+      dest: /etc/tomcat9/tomcat-users.xml
+    notify:
+      - start tomcat9
+

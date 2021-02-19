@@ -1,0 +1,21 @@
+---
+ - name: Membership & Test Operator Example
+   hosts: localhost
+   gather_facts: false
+   vars:
+     x: [3,4,5]
+     y:
+      - 6
+      - 7
+      - 8
+     z: 10
+     a: [1]
+   tasks:
+     - debug:
+         msg:
+           - "The list is {{x}}"
+           - "5 is in the list: {{5 in x}}"
+           - "{{z}} is not in the list: {{z not in x}}"
+           - "7 is not in {{y}}: {{7 not in y}}"
+           - "5 is in {{y}}: {{5 in a}}"
+       when: a is defined

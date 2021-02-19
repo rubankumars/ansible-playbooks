@@ -1,0 +1,20 @@
+---
+ - hosts: localhost
+   gather_facts: false
+   vars:
+     x: "tHis iS abOut aNsiBle FiLterS and mEThods"
+     y: "56"
+     z: [4,5,6,7,8]
+   tasks:
+     - debug:
+         msg:
+           - "{{x|lower}}"
+           - "{{x|upper}}"
+           - "{{x|title}}"
+           - "{{x.lower()}}"
+           - "{{x.upper()}}"
+           - "{{x.title()}}"
+           - "{{y|int+4}}"
+           - "The max from the list z: {{z|max}}"
+           - "The min from the list z: {{z|min}}"
+           - "{{x.split()}}"

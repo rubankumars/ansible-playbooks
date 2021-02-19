@@ -1,0 +1,27 @@
+---
+ - name: Test Operator Example
+   hosts: localhost
+   gather_facts: false
+   vars:
+     x: 40
+     playbook_path: "/home/ubuntu"
+     playbook_name: "{{playbook_path}}/test_op.yml"
+     link_path: "{{playbook_path}}/link_folder/my_file"
+   tasks:
+     - debug:
+         msg:
+           - "x is defined {{x is defined}}"
+           - "y is defined {{y is defined}}"
+           - "z is undefined {{z is undefined}}"
+           - "playbook_name is upper {{playbook_name is upper}}"
+           - "playbook_name is lower {{playbook_name is lower}}"
+           - "playbook_name is string {{playbook_name is string}}"
+           - "{{x}} is divisibleby 2 {{x is divisibleby 2}}"
+           - "{{x}} is even {{x is even}}"
+           - "{{x}} is odd {{x is odd}}"
+           - "{{x}} is number {{x is number}}"
+           - "{{playbook_path}} is directory {{playbook_path is directory}}"
+           - "{{playbook_name}} is file {{playbook_name is file}}"
+           - "{{link_path}} is link {{link_path is link}}"
+           - "{{playbook_path}} is exists {{playbook_path is exists}}"
+           - "{{playbook_name}} is same_file {{link_path}} {{playbook_name is same_file link_path}}"  

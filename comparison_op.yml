@@ -1,0 +1,20 @@
+---
+ - name: Working with Comparison or Relationship Operators
+   hosts: localhost
+   gather_facts: false
+   vars:
+     x: 6
+     y: 6
+     name1: ansible
+     playbook: ansible
+   tasks:
+     - debug:
+         msg:
+           - "The value of x is: {{x}} and value of y is: {{y}}"
+           - "x == y: {{x==y}}"
+           - "x != y: {{x!=y}}"
+           - "x > y: {{x>y}}"
+           - "x < y: {{x<y}}"
+           - "x >= y: {{x>=y}}"
+           - "x <= y: {{x<=y}}" 
+           - "name1 == playbook: {{name1==playbook}}"

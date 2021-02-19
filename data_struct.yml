@@ -1,0 +1,22 @@
+---
+ - name: Data Structures Example
+   hosts: target
+   gather_facts: false
+   vars:
+           #    software_packages: ['vim', 'nano', 'git', 'nginx']
+           #    web_servers: {'Linux': 'httpd', 'ubuntu': 'apache2'}
+    software_packages:
+    - 'vim'
+    - 'nano'
+    - 'git'
+    - 'nginx'
+    web_servers:
+     'Linux': 'httpd'
+     'ubuntu': 'apache2'
+   tasks:
+    - debug: var=software_packages #print all the elements in the list
+    - debug: var=web_servers #print all the key values in the dictionary
+    - debug: var=software_packages[0] #accessing the first element in the list
+    - debug: var=web_servers.keys() #print only the keys from the dictionary
+    - debug: var=web_servers['Linux'] #print the value of its corresponding key in the dictionary
+    - debug: var=web_servers.get('Linux') #print the value of its corresponding key in the dictionary

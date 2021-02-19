@@ -1,0 +1,6 @@
+---
+# vars file for install_tomcat
+  tomcat_port: 80
+  ADMIN_ROLE: admin-gui
+  MANAGER_ROLE: manager-gui
+  TOMCAT_USERNAME: tomcat

@@ -1,0 +1,9 @@
+---
+ - hosts: localhost
+   vars:
+    x: 45
+   gather_facts: false
+   tasks:
+   - debug: var=x
+   - debug: var=y
+   - debug: var=z

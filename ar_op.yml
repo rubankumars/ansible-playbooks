@@ -1,0 +1,13 @@
+---
+ - hosts: target
+   gather_facts: false
+   vars:
+     x: "2"
+     y: "{{x+2}}"
+   tasks:
+     - name: Display Values
+       debug:
+         msg:
+         - "Value of x: {{x}}"
+         - "Value of y: {{y}}"
+

@@ -1,0 +1,11 @@
+---
+ - hosts: target
+   gather_facts: false
+   vars:
+     x: 56
+     y: 56
+     z: [3,4,5,6,7]
+   tasks:
+     - template:
+         src: jinjaexample.j2
+         dest: jinjatext.txt

@@ -1,0 +1,38 @@
+This is from {{inventory_hostname}}
+
+{# If Statement #}
+{% if x < y %}
+This is a true for given condition: {{x}} < {{y}}
+{% endif %}
+
+{# If Else Statement #}
+{% if x < y %}
+This is a true for given condition: {{x}} < {{y}}
+{% else %}
+This is false for given condition: {{x}} !< {{y}}
+{% endif %}
+
+{# Nested If Else Statement #}
+{% if x < y %}
+This is a true for given condition: {{x}} < {{y}}
+{% elif x > y %}
+This message is from the nested if else block for the second condition: {{y}} > {{x}}
+{% else %}
+All the conditions are false
+{% endif %}
+
+{# For Loop #}
+{% for each in z %}
+We are listing the item {{each}}
+
+{% if x < y %}
+This is a true for given condition: {{x}} < {{y}}
+{% elif x > y %}
+This message is from the nested if else block for the second condition: {{y}} > {{x}}
+{% else %}
+All the conditions are false
+{% endif %}
+
+This is without any variables.
+
+{% endfor %}

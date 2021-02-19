@@ -1,0 +1,12 @@
+---
+ - hosts: target
+   name: Verbosity example
+   gather_facts: no
+   tasks:
+   - name: This prints the message with default verbosity
+     debug:
+      msg: "My Default Message with default verbosity"
+   - name: Setting the verbosity value to 2
+     debug:
+      msg: "This message will be printed when the verbosity is set to 2 or more"
+      verbosity: 2

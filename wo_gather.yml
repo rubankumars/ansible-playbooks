@@ -1,0 +1,16 @@
+---
+ - name: Finding the OS Distribution and OS Name
+   hosts: localhost
+   gather_facts: false
+   tasks:
+   - name: Gather OS Distribution
+     shell: "cat /etc/os-release | head -1 | cut -d'=' -f2|tr -d '\"'"
+     register: os_dist
+   - name: Gather OS Name
+     shell: "uname"
+     register: os_name
+   - debug:
+      msg:
+       - "OS Distribution: {{os_dist.stdout}}"
+       - "OS Name: {{os_name.stdout}}"
+

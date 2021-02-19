@@ -1,0 +1,6 @@
+---
+ - hosts: target
+   tasks:
+     - include_vars: vars_{{ansible_distribution}}.yml
+     - debug:
+         msg: "Package Name={{pkg}}"

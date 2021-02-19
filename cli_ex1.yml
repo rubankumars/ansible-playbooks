@@ -1,0 +1,10 @@
+---
+ - hosts: localhost
+   gather_facts: no
+   tasks:
+   - debug: var=x
+   - debug: var=y
+   - debug: var=pkgs
+   - debug: var=p
+   - debug: var=q
+   - debug: var=r

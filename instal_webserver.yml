@@ -1,0 +1,13 @@
+---
+ - name: A Simple playbook to install the webserver
+   hosts: target
+   gather_facts: true
+   tasks:
+     - debug:
+         msg:
+           - "Node is {{inventory_hostname}} and Distribution is {{ansible_distribution}}"
+     - name: Installing webserver
+       yum: 
+         name: apache2
+         state: present
+       become: yes

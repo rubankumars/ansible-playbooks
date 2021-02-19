@@ -1,0 +1,29 @@
+---
+ - name: Error Handling with Block
+   hosts: target
+   gather_facts: true
+   tasks:
+     - name: Installing apache2
+       package:
+         name: apache2
+         state: present
+       become: yes
+       when: ansible_distribution=="Ubuntu"
+     - name: start apache2
+       service:
+         name: apache2
+         state: started
+       become: yes
+       when: ansible_distribution=="Ubuntu"
+     - name: Installing httpd
+       package:
+         name: httpd
+         state: present
+       become: yes
+       when: ansible_distribution!="Ubuntu"
+     - name: start httpd
+       service:
+         name: httpd
+         state: started
+       become: yes
+       when: ansible_distribution!="Ubuntu"
